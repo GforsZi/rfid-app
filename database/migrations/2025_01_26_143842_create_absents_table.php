@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('absents', function (Blueprint $table) {
             $table->id();
+            $table
+                ->foreignId("user_id")
+                ->constrained(table: "siswas", indexName: "siswa_id");
+            $table->date("tanggal");
+            $table->time("masuk")->default("00:00:00");
+            $table->time("istirahat")->default("00:00:00");
+            $table->time("kembali")->default("00:00:00");
+            $table->time("pulang")->default("00:00:00");
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Siswa;
+use App\Models\Absent;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -82,6 +83,16 @@ class ViewController
         return view("list/siswa/form.edit", [
             "tittle" => "Edit page",
             "siswa_siswa" => Siswa::where('nisn', $nisn)->get(),
+        ]);
+    }
+
+    public function show_list_absen_page(): View
+    {
+        return view("list/absen.view", [
+            "tittle" => "List page",
+            // "absents" => Absent::latest()->get(),
+            "date" => date("y-m-d"),
+            "time" => date("H:i:s"),
         ]);
     }
 
