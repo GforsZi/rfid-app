@@ -1,6 +1,8 @@
 <x-layout>
   <x-slot:tittle></x-slot:tittle>
   <h1>List Siswa</h1>
+  <h2>Tanggal: {{$date}}</h2>
+  <h2>Waktu: {{$time}}</h2>
 
   @if(session()->has("error"))
   <h5>Error: {{session("error")}}</h5>

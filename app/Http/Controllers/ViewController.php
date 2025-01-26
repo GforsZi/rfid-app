@@ -50,6 +50,8 @@ class ViewController
         return view("list/siswa.view", [
             "tittle" => "List page",
             "siswa_siswa" => Siswa::latest()->get(),
+            "date" => date("y-m-d"),
+            "time" => date("H:i:s"),
         ]);
     }
 

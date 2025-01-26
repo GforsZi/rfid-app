@@ -40,7 +40,7 @@ Route::post("/users/login", [UserController::class, "auth"])->middleware("guest"
 
 Route::post("/siswa/add", [SiswaController::class, "store"])->middleware("auth");
 
-Route::post("/siswa/scan", [SiswaController::class, "tmp_rfid"])->middleware("auth");
+Route::get("/siswa/scan", [SiswaController::class, "tmp_rfid"])->middleware("auth");
 
 Route::delete("/siswa/{nisn}", [SiswaController::class, "delete"])->middleware("auth");
 
