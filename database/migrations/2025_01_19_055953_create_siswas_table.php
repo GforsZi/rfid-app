@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
+            $table
+                ->foreignId("classroom_id")
+                ->constrained(table: "class_rooms", indexName: "belongsto_classroom_id");
             $table->string('name');
             $table->string('nisn')->unique();
             $table->string('rfid')->unique();
-            $table->string('kelas');
-            $table->enum("jurusan", ["Pengembangan Prangkat lunak dan Gim", "Desain Komunikasi Visual"]);
             $table
-                ->string("foto_profile")
+                ->string("foto")
                 ->nullable()
-                ->default("tefa.jpg");
+                ->default("siswa.jpg");
             $table->softDeletes();
             $table->timestamps();
         });

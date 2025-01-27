@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Siswa;
 use App\Models\Absent;
+use App\Models\ClassRoom;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -83,6 +84,31 @@ class ViewController
         return view("list/siswa/form.edit", [
             "tittle" => "Edit page",
             "siswa_siswa" => Siswa::where('nisn', $nisn)->get(),
+        ]);
+    }
+
+    public function show_list_kelas_page(): View
+    {
+        return view("list/kelas.view", [
+            "tittle" => "List page",
+            "classrooms" => ClassRoom::latest()->get(),
+            "date" => date("y-m-d"),
+            "time" => date("H:i:s"),
+        ]);
+    }
+
+    public function show_add_kelas_page(): View
+    {
+        return view("list/kelas/form.add", [
+            "tittle" => "Add siswa page",
+        ]);
+    }
+
+    public function show_edit_kelas_page($id): View
+    {
+        return view("list/kelas/form.edit", [
+            "tittle" => "Edit page",
+            "classrooms" => ClassRoom::where('id', $id)->get(),
         ]);
     }
 

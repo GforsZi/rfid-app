@@ -9,16 +9,11 @@ class SiswaController
 {
     public function store(Request $request)
     {
-        if ($request["password"] !== $request["confirm_password"]) {
-            return redirect("/list/siswa/add");
-            exit();
-        }
         $validateData = $request->validate([
             "name" => "required | min:3 | max:255",
             "nisn" => "required | unique:siswas,nisn",
             "rfid" => "required | unique:siswas,rfid",
             "kelas" => "required | min:2 | max:2",
-            "jurusan" => "required | min:5 | max:50",
         ]);
 
         Siswa::create($validateData);

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AbsentController;
+use App\Http\Controllers\ClassRoomController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
@@ -30,6 +31,12 @@ Route::get("/list/siswa/{nisn}", [ViewController::class, "view_detail_siswa_page
 
 Route::get("/list/siswa/{nisn}/edit", [ViewController::class, "show_edit_siswa_page"])->middleware("auth");
 
+Route::get("/list/kelas", [ViewController::class, "show_list_kelas_page"])->middleware("auth");
+
+Route::get("/list/kelas/add", [ViewController::class, "show_add_kelas_page"])->middleware("auth");
+
+Route::get("/list/kelas/{id}/edit", [ViewController::class, "show_edit_kelas_page"])->middleware("auth");
+
 Route::get("/list/absen", [ViewController::class, "show_list_absen_page"])->middleware("auth");
 
 Route::get("/logout", [ViewController::class, "logout"])->middleware("auth");
@@ -48,5 +55,11 @@ Route::get("/siswa/scan", [SiswaController::class, "tmp_rfid"])->middleware("aut
 Route::delete("/siswa/{nisn}", [SiswaController::class, "delete"])->middleware("auth");
 
 Route::put("/siswa/{nisn}", [SiswaController::class, "update"])->middleware("auth");
+
+Route::post("/kelas/add", [ClassRoomController::class, "store"])->middleware("auth");
+
+Route::put("/kelas/{nisn}/edit", [ClassRoomController::class, "update"])->middleware("auth");
+
+Route::delete("/kelas/{nisn}/delete", [ClassRoomController::class, "delete"])->middleware("auth");
 
 Route::post("/absen/add", [AbsentController::class, "store"])->middleware("auth");

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('absents', function (Blueprint $table) {
             $table->id();
             $table
-                ->foreignId("user_id")
-                ->constrained(table: "siswas", indexName: "siswa_id");
+                ->foreignId("siswa_id")
+                ->constrained(table: "siswas", indexName: "belongsto_siswa_id");
             $table->date("tanggal");
             $table->time("masuk")->default("00:00:00");
             $table->time("istirahat")->default("00:00:00");

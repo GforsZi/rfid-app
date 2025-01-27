@@ -52,18 +52,6 @@
         autocomplete="off" />
       <label for="kelas">Kelas</label>
     </div>
-    <div class="mb-3">
-      <label for="jurusan" class="form-label"></label>
-      <div class="input-group">
-        <span class="input-group-text bg-primary text-white">
-          <i class='bx bx-user-plus'></i>
-        </span>
-        <select id="jurusan" name="jurusan" class="form-select">
-          <option value="Desain Komunikasi Visual">DKV</option>
-          <option value="Pengembangan Prangkat lunak dan Gim">PPLG</option>
-        </select>
-      </div>
-    </div>
     <button class="btn mt-3 btn-primary w-100 py-2" type="submit">
       Submit
     </button>
