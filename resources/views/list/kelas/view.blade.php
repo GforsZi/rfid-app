@@ -38,4 +38,5 @@
     @endforeach
   </table>
   <a href="/list/kelas/add">tambah data kelas</a>
+  <a href="/list/kelas/delete">hapus data siswa</a>
 </x-layout>

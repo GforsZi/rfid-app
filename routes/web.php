@@ -35,6 +35,8 @@ Route::get("/list/kelas", [ViewController::class, "show_list_kelas_page"])->midd
 
 Route::get("/list/kelas/add", [ViewController::class, "show_add_kelas_page"])->middleware("auth");
 
+Route::get("/list/kelas/delete", [ViewController::class, "show_delete_kelas_page"])->middleware("auth");
+
 Route::get("/list/kelas/{id}/edit", [ViewController::class, "show_edit_kelas_page"])->middleware("auth");
 
 Route::get("/list/absen", [ViewController::class, "show_list_absen_page"])->middleware("auth");

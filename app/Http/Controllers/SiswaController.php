@@ -13,7 +13,7 @@ class SiswaController
             "name" => "required | min:3 | max:255",
             "nisn" => "required | unique:siswas,nisn",
             "rfid" => "required | unique:siswas,rfid",
-            "kelas" => "required | min:2 | max:2",
+            "classroom_id" => "required",
         ]);
 
         Siswa::create($validateData);

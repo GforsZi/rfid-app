@@ -24,8 +24,7 @@ class ClassRoomController
 
     public function delete($angkatan)
     {
-
-        $kelas = ClassRoom::where("angkatan", $angkatan)->get();
+        $kelas = ClassRoom::where("angkatan", $angkatan);
 
         if (!$kelas) {
             return redirect("/list/kelas")->with(

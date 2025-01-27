@@ -16,7 +16,7 @@ class ClassRoom extends Model
 
     protected $dates = ['deleted_at'];
 
-    public function fotos(): HasMany
+    public function siswa(): HasMany
     {
         return $this->hasMany(Siswa::class);
     }

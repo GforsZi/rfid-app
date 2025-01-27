@@ -16,7 +16,7 @@ class Absent extends Model
 
     protected $dates = ['deleted_at'];
 
-    public function user(): BelongsTo
+    public function siswa(): BelongsTo
     {
         return $this->belongsTo(Siswa::class);
     }

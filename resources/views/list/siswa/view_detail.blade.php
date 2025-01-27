@@ -8,7 +8,6 @@
       <th>Nisn</th>
       <th>Nama</th>
       <th>Kelas</th>
-      <th>Jurusan</th>
       <th>Action</th>
     </tr>
     @foreach ($siswa_siswa as $siswa)
@@ -16,8 +15,7 @@
       <td>{{$siswa->id}}</td>
       <td>{{$siswa->nisn}}</td>
       <td>{{$siswa->name}}</td>
-      <td>{{$siswa->kelas}}</td>
-      <td>{{$siswa->jurusan}}</td>
+      <td>{{$siswa->classroom->kelas}} {{$siswa->classroom->jurusan}} {{$siswa->classroom->kelas_ke}}</td>
       <td>
         <a href="/list/siswa/{{$siswa->nisn}}/edit">Edit</a>|
         <form action="/siswa/{{$siswa->nisn}}" method="POST">

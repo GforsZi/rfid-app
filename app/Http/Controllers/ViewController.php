@@ -51,7 +51,7 @@ class ViewController
     {
         return view("list/siswa.view", [
             "tittle" => "List page",
-            "siswa_siswa" => Siswa::latest()->get(),
+            "siswa_siswa" => Siswa::with("classroom")->latest()->get(),
             "date" => date("y-m-d"),
             "time" => date("H:i:s"),
         ]);
@@ -61,7 +61,7 @@ class ViewController
     {
         return view("list/siswa.view_detail", [
             "tittle" => "List page",
-            "siswa_siswa" => Siswa::where('nisn', $nisn)->get(),
+            "siswa_siswa" => Siswa::with("classroom")->where('nisn', $nisn)->get(),
         ]);
     }
 
@@ -69,6 +69,7 @@ class ViewController
     {
         return view("list/siswa/form.add", [
             "tittle" => "Add siswa page",
+            "classrooms" => ClassRoom::latest()->get(),
         ]);
     }
 
@@ -101,6 +102,14 @@ class ViewController
     {
         return view("list/kelas/form.add", [
             "tittle" => "Add siswa page",
+        ]);
+    }
+
+    public function show_delete_kelas_page(): View
+    {
+        return view("list/kelas/form.delete", [
+            "tittle" => "delete siswa page",
+            "angkatan" => ClassRoom::select("angkatan")->distinct()->pluck('angkatan'),
         ]);
     }
 

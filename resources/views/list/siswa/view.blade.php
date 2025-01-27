@@ -19,7 +19,6 @@
       <th>Nisn</th>
       <th>Nama</th>
       <th>Kelas</th>
-      <th>Jurusan</th>
       <th>waktu</th>
       <th>setting</th>
     </tr>
@@ -28,8 +27,7 @@
       <td>{{$siswa->id}}</td>
       <td>{{$siswa->nisn}}</td>
       <td>{{$siswa->name}}</td>
-      <td>{{$siswa->kelas}}</td>
-      <td>{{$siswa->jurusan}}</td>
+      <td>{{$siswa->classroom->kelas}} {{$siswa->classroom->jurusan}} {{$siswa->classroom->kelas_ke}}</td>
       <td>{{$siswa->created_at}}</td>
       <td><a href="/list/siswa/{{$siswa->nisn}}">View</a></td>
     </tr>
