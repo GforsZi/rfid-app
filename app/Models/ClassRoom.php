@@ -20,4 +20,10 @@ class ClassRoom extends Model
     {
         return $this->hasMany(Siswa::class);
     }
+
+    public function delete()
+    {
+        $this->siswa()->delete();
+        return parent::delete();
+    }
 }

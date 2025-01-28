@@ -20,14 +20,14 @@ class Siswa extends Model
 
     protected $dates = ['deleted_at'];
 
-    protected $with = ["classroom"];
+    protected $with = ["class_room"];
 
     public function absent(): HasMany
     {
         return $this->hasMany(Absent::class);
     }
 
-    public function classroom(): BelongsTo
+    public function class_room(): BelongsTo
     {
         return $this->belongsTo(ClassRoom::class);
     }
