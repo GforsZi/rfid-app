@@ -15,20 +15,40 @@ class ScheduleController
         $schedule = schedule::all()->count();
 
         $validateData = $request->validate([
-            "mode" => "required | string",
             "jam_masuk" => "required",
             "jam_istirahat" => "required",
             "jam_kembali" => "required",
             "jam_pulang" => "required",
         ]);
 
-        if ($schedule >= 1) {
-            schedule::create($validateData);
-        } else {
-            schedule::where("id", 1)->update($validateData);
+        schedule::create($validateData);
+
+        return redirect("/setting/jadwal")->with("success", "account created");
+    }
+
+    public function update(Request $request, $id)
+    {
+        $jadwal = schedule::where("id", $id)->first();
+
+        $validatedData = $request->validate([
+            "jam_masuk" => "required",
+            "jam_istirahat" => "required",
+            "jam_kembali" => "required",
+            "jam_pulang" => "required",
+        ]);
+
+        if (!$jadwal) {
+            return redirect("/setting/jadwal")->with(
+                "error",
+                "data not found"
+            );
         }
 
-        schedule::create($validateData);
-        return redirect("/list/siswa")->with("success", "account created");
+        $jadwal->update($validatedData);
+
+        return redirect("/setting/jadwal")->with(
+            "success",
+            "data has been updated"
+        );
     }
 }

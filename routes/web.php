@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AbsentController;
 use App\Http\Controllers\ClassRoomController;
+use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
@@ -41,6 +42,12 @@ Route::get("/list/kelas/{id}/edit", [ViewController::class, "show_edit_kelas_pag
 
 Route::get("/list/absen", [ViewController::class, "show_list_absen_page"])->middleware("auth");
 
+Route::get("/setting", [ViewController::class, "show_setting_page"])->middleware("auth");
+
+Route::get("/setting/jadwal", [ViewController::class, "show_jadwal_page"])->middleware("auth");
+
+Route::get("/setting/jadwal/add", [ViewController::class, "show_add_jadwal_page"])->middleware("auth");
+
 Route::get("/logout", [ViewController::class, "logout"])->middleware("auth");
 
 
@@ -65,3 +72,7 @@ Route::put("/kelas/{nisn}/edit", [ClassRoomController::class, "update"])->middle
 Route::delete("/kelas/{nisn}/delete", [ClassRoomController::class, "delete"])->middleware("auth");
 
 Route::post("/absen/add", [AbsentController::class, "store"])->middleware("auth");
+
+Route::post("/jadwal/add", [ScheduleController::class, "store"])->middleware("auth");
+
+Route::put("/jadwal/{id}/update", [ScheduleController::class, "update"])->middleware("auth");

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->enum("mode", ["otomatis", "masuk", "istirahat", "kembali", "pulang"]);
+            $table->enum("mode", ["otomatis", "masuk", "istirahat", "kembali", "pulang"])->default("otomatis");
             $table->time("jam_masuk")->default("00:00:00");
             $table->time("jam_istirahat")->default("00:00:00");
             $table->time("jam_kembali")->default("00:00:00");

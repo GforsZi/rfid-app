@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Siswa;
 use App\Models\Absent;
 use App\Models\ClassRoom;
+use App\Models\schedule;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -131,6 +132,31 @@ class ViewController
             "time" => date("H:i:s"),
         ]);
     }
+
+    public function show_setting_page(): View
+    {
+        return view("setting.index", [
+            "tittle" => "setting page",
+        ]);
+    }
+
+    public function show_jadwal_page(): View
+    {
+        return view("setting/jadwal.view", [
+            "tittle" => "jadwal page",
+            "jadwal" => schedule::get(),
+        ]);
+    }
+
+    public function show_add_jadwal_page(): View
+    {
+        return view("setting/jadwal/form.add", [
+            "tittle" => "add jadwal page",
+            "data" => schedule::get()->count(),
+            "jadwal" => schedule::get(),
+        ]);
+    }
+
 
     public function logout(Request $request)
     {
