@@ -133,6 +133,13 @@ class ViewController
         ]);
     }
 
+    public function show_add_absen_page(): View
+    {
+        return view("list/absen/form.add", [
+            "tittle" => "List add page",
+        ]);
+    }
+
     public function show_setting_page(): View
     {
         return view("setting.index", [

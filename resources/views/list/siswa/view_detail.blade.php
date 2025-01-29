@@ -5,6 +5,7 @@
   <table border="1">
     <tr>
       <th>No</th>
+      <th>RFID</th>
       <th>Nisn</th>
       <th>Nama</th>
       <th>Kelas</th>
@@ -13,6 +14,7 @@
     @foreach ($siswa_siswa as $siswa)
     <tr>
       <td>{{$siswa->id}}</td>
+      <td>{{$siswa->rfid}}</td>
       <td>{{$siswa->nisn}}</td>
       <td>{{$siswa->name}}</td>
       <td>{{$siswa->class_room->kelas}} {{$siswa->class_room->jurusan}} {{$siswa->class_room->kelas_ke}}</td>

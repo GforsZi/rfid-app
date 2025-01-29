@@ -42,6 +42,8 @@ Route::get("/list/kelas/{id}/edit", [ViewController::class, "show_edit_kelas_pag
 
 Route::get("/list/absen", [ViewController::class, "show_list_absen_page"])->middleware("auth");
 
+Route::get("/list/absen/add", [ViewController::class, "show_add_absen_page"])->middleware("auth");
+
 Route::get("/setting", [ViewController::class, "show_setting_page"])->middleware("auth");
 
 Route::get("/setting/jadwal", [ViewController::class, "show_jadwal_page"])->middleware("auth");
@@ -59,7 +61,7 @@ Route::post("/users/login", [UserController::class, "auth"])->middleware("guest"
 
 Route::post("/siswa/add", [SiswaController::class, "store"])->middleware("auth");
 
-Route::get("/siswa/scan", [SiswaController::class, "tmp_rfid"])->middleware("auth");
+Route::post("/siswa/scan", [SiswaController::class, "tmp_rfid"])->middleware("auth");
 
 Route::delete("/siswa/{nisn}", [SiswaController::class, "delete"])->middleware("auth");
 

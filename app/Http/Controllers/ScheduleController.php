@@ -16,8 +16,10 @@ class ScheduleController
 
         $validateData = $request->validate([
             "jam_masuk" => "required",
-            "jam_istirahat" => "required",
-            "jam_kembali" => "required",
+            "jam_istirahat_1" => "required",
+            "jam_kembali_1" => "required",
+            "jam_istirahat_2" => "required",
+            "jam_kembali_2" => "required",
             "jam_pulang" => "required",
         ]);
 
@@ -31,9 +33,12 @@ class ScheduleController
         $jadwal = schedule::where("id", $id)->first();
 
         $validatedData = $request->validate([
+            "mode" => "required",
             "jam_masuk" => "required",
-            "jam_istirahat" => "required",
-            "jam_kembali" => "required",
+            "jam_istirahat_1" => "required",
+            "jam_kembali_1" => "required",
+            "jam_istirahat_2" => "required",
+            "jam_kembali_2" => "required",
             "jam_pulang" => "required",
         ]);
 

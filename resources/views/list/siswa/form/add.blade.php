@@ -47,7 +47,7 @@
         <span class="input-group-text bg-primary text-white">
           <i class='bx bx-user-plus'></i>
         </span>
-        <select id="kelas" name="classroom_id" class="form-select">
+        <select id="kelas" name="class_room_id" class="form-select">
           @foreach ($classrooms as $classroom)
           <option value="{{$classroom->id}}">{{$classroom->kelas}} {{$classroom->jurusan}} {{$classroom->kelas_ke}}</option>
           @endforeach
