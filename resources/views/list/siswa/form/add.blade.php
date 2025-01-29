@@ -21,13 +21,11 @@
         class="form-control"
         id="rfid"
         readonly
-        @if(session()->has("rfid"))
-      value="{{session("rfid")}}"
-      @endif
-      name="rfid"
-      placeholder="rfid siswa"
-      required="on"
-      autocomplete="off" />
+        value="{{$rfid}}"
+        name="rfid"
+        placeholder="rfid siswa"
+        required="on"
+        autocomplete="off" />
       <label for="rfid">code rfid Siswa</label>
     </div>
     <div class="form-floating">

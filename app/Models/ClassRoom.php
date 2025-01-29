@@ -23,7 +23,11 @@ class ClassRoom extends Model
 
     public function delete()
     {
-        $this->siswa()->delete();
+        // Hapus semua posts & comments terkait sebelum menghapus user
+        $this->siswa()->each(function ($siswa) {
+            $siswa->delete();
+        });
+
         return parent::delete();
     }
 }

@@ -12,25 +12,27 @@
       <th>Nisn</th>
       <th>Tanggal</th>
       <th>Masuk</th>
-      <th>Jam istirahat 1</th>
-      <th>Jam kembali 1</th>
-      <th>Jam istirahat 2</th>
-      <th>Jam kembali 2</th>
+      <th>istirahat 1</th>
+      <th>kembali 1</th>
+      <th>istirahat 2</th>
+      <th>kembali 2</th>
       <th>Pulang</th>
       <th>setting</th>
     </tr>
+    @foreach($absents as $absent)
     <tr>
-      <td>---</td>
-      <td>---</td>
-      <td>---</td>
-      <td>---</td>
-      <td>---</td>
-      <td>---</td>
-      <td>---</td>
-      <td>---</td>
-      <td>---</td>
-      <td>---</td>
-      <td>---</td>
+      <td>{{$absent->id}}</td>
+      <td>{{$absent->siswa->name}}</td>
+      <td>{{$absent->siswa->nisn}}</td>
+      <td>{{$absent->tanggal}}</td>
+      <td>{{$absent->masuk}}</td>
+      <td>{{$absent->istirahat_1}}</td>
+      <td>{{$absent->kembali_1}}</td>
+      <td>{{$absent->istirahat_2}}</td>
+      <td>{{$absent->kembali_2}}</td>
+      <td>{{$absent->pulang}}</td>
+      <td>hapus</td>
     </tr>
+    @endforeach
   </table>
 </x-layout>

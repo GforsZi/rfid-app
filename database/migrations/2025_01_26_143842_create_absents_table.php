@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table
                 ->foreignId("siswa_id")
-                ->constrained(table: "siswas", indexName: "belongsto_siswa_id");
+                ->constrained(table: "siswas", indexName: "belongsto_siswa_id")->onUpdate('cascade')->onDelete('cascade');
             $table->date("tanggal");
             $table->time("masuk")->default("00:00");
             $table->time("istirahat_1")->default("00:00");

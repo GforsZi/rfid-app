@@ -17,6 +17,7 @@ class SiswaController
         ]);
 
         Siswa::create($validateData);
+        $request->session()->forget('rfid');
         return redirect("/list/siswa")->with("success", "account created");
     }
 
@@ -26,7 +27,11 @@ class SiswaController
             "rfid" => "required | min:10 | max:20",
         ]);
 
-        return redirect("/list/siswa/add")->with("rfid", $validateRFID["rfid"]);
+        $request->session()->put('rfid', $validateRFID["rfid"]);
+
+        session(['rfid' => $validateRFID["rfid"]]);
+
+        return redirect("/list/siswa/add");
     }
 
     public function delete($nisn)

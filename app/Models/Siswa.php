@@ -31,4 +31,10 @@ class Siswa extends Model
     {
         return $this->belongsTo(ClassRoom::class);
     }
+
+    public function delete()
+    {
+        $this->absent()->delete();
+        return parent::delete();
+    }
 }

@@ -70,6 +70,7 @@ class ViewController
     {
         return view("list/siswa/form.add", [
             "tittle" => "Add siswa page",
+            "rfid" => session('rfid'),
             "classrooms" => ClassRoom::latest()->get(),
         ]);
     }
@@ -127,7 +128,7 @@ class ViewController
     {
         return view("list/absen.view", [
             "tittle" => "List page",
-            // "absents" => Absent::latest()->get(),
+            "absents" => Absent::with("siswa")->latest()->get(),
             "date" => date("y-m-d"),
             "time" => date("H:i:s"),
         ]);
