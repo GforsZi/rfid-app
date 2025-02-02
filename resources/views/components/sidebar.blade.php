@@ -39,7 +39,7 @@
                 aria-labelledby="sidebarMenuLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="sidebarMenuLabel">
-                        Uni-cash
+                        RFID-app
                     </h5>
                     <button
                         type="button"
