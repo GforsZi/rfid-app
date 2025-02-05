@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AbsentController;
 use App\Http\Controllers\ClassRoomController;
+use App\Http\Controllers\RfidController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
@@ -61,8 +62,6 @@ Route::post("/users/login", [UserController::class, "auth"])->middleware("guest"
 
 Route::post("/siswa/add", [SiswaController::class, "store"])->middleware("auth");
 
-Route::post("/siswa/scan", [SiswaController::class, "tmp_rfid"])->middleware("auth");
-
 Route::delete("/siswa/{nisn}", [SiswaController::class, "delete"])->middleware("auth");
 
 Route::put("/siswa/{nisn}", [SiswaController::class, "update"])->middleware("auth");
@@ -73,8 +72,8 @@ Route::put("/kelas/{nisn}/edit", [ClassRoomController::class, "update"])->middle
 
 Route::delete("/kelas/{nisn}/delete", [ClassRoomController::class, "delete"])->middleware("auth");
 
-Route::post("/absen/add", [AbsentController::class, "store"])->middleware("auth");
-
 Route::post("/jadwal/add", [ScheduleController::class, "store"])->middleware("auth");
 
 Route::put("/jadwal/{id}/update", [ScheduleController::class, "update"])->middleware("auth");
+
+Route::post("/rfid/scan", [RfidController::class, "tmp_rfid"])->middleware("auth");
