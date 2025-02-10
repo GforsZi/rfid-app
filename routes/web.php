@@ -76,4 +76,4 @@ Route::post("/jadwal/add", [ScheduleController::class, "store"])->middleware("au
 
 Route::put("/jadwal/{id}/update", [ScheduleController::class, "update"])->middleware("auth");
 
-Route::post("/rfid/scan", [RfidController::class, "tmp_rfid"])->middleware("auth");
+Route::get("/rfid/scan", [RfidController::class, "tmp_rfid"])->withoutMiddleware('auth');

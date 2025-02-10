@@ -12,9 +12,8 @@ class RfidController
 {
     public function tmp_rfid(Request $request)
     {
-        $validateRFID = $request->validate([
-            "rfid" => "required | min:9 | max:20",
-        ]);
+
+        $validateRFID = $request->toArray();
 
         $data_rfid = Siswa::where("rfid", $validateRFID["rfid"])->first();
         if ($data_rfid == null) {
@@ -22,14 +21,11 @@ class RfidController
 
             session(['rfid' => $validateRFID["rfid"]]);
 
-            if ($request->wantsJson()) {
-                return response()->json([
-                    'message' => 'RFID diterima',
-                    'data' => $validateRFID["rfid"]
-                ], 201);
-            }
-
-            return redirect("/list/siswa/add");
+            return response()->json([
+                'message' => 'RFID diterima',
+                'data' => $validateRFID["rfid"],
+                "rfid" => session('rfid'),
+            ], 201);
             exit;
         } else {
             function create_absent($id, $jadwal)

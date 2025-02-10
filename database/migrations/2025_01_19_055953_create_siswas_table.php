@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table
                 ->foreignId("class_room_id")
-                ->constrained(table: "class_rooms", indexName: "belongsto_classroom_id")->onUpdate('cascade')
+                ->constrained(table: "class_rooms", indexName: "classroom_id_1")->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('name');
             $table->string('nisn')->unique();
