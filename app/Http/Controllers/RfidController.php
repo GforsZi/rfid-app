@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\Absent;
+use App\Models\tmp_rfid;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -12,19 +13,21 @@ class RfidController
 {
     public function tmp_rfid(Request $request)
     {
+        $tmp_rfid = tmp_rfid::query()->delete();;
 
         $validateRFID = $request->toArray();
 
+        $data = [
+            "tmp_rfid" => $validateRFID["rfid"],
+        ];
+
         $data_rfid = Siswa::where("rfid", $validateRFID["rfid"])->first();
         if ($data_rfid == null) {
-            $request->session()->put('rfid', $validateRFID["rfid"]);
-
-            session(['rfid' => $validateRFID["rfid"]]);
+            tmp_rfid::create($data);
 
             return response()->json([
                 'message' => 'RFID diterima',
                 'data' => $validateRFID["rfid"],
-                "rfid" => session('rfid'),
             ], 201);
             exit;
         } else {
@@ -91,14 +94,11 @@ class RfidController
                 create_absent($siswa_id, $jam->mode);
             }
 
-            if ($request->wantsJson()) {
-                return response()->json([
-                    'message' => 'RFID diterima',
-                    'data' => $validateRFID["rfid"]
-                ], 201);
-            }
+            return response()->json([
+                'message' => 'RFID diterima',
+                'data' => $validateRFID["rfid"]
+            ], 201);
 
-            return redirect("/list/absen")->with("success", "Absent created");
             exit;
         }
     }

@@ -6,6 +6,7 @@ use App\Models\Siswa;
 use App\Models\Absent;
 use App\Models\ClassRoom;
 use App\Models\schedule;
+use App\Models\tmp_rfid;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -68,9 +69,11 @@ class ViewController
 
     public function show_add_siswa_page(): View
     {
+        $tmp_rfid = tmp_rfid::get()->first();
+        $rfid = $tmp_rfid->toArray();
         return view("list/siswa/form.add", [
             "tittle" => "Add siswa page",
-            "rfid" => session('rfid'),
+            "rfid" => $rfid["tmp_rfid"],
             "classrooms" => ClassRoom::latest()->get(),
         ]);
     }
