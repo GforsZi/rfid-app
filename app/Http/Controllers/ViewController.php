@@ -156,6 +156,7 @@ class ViewController
         return view("setting/jadwal.view", [
             "tittle" => "jadwal page",
             "jadwal" => schedule::get(),
+            "date" => date("y-m-d"),
         ]);
     }
 

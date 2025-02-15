@@ -25,6 +25,9 @@
             <a
               href="/list/kelas/add"
               class="btn btn-outline-secondary px-2 py-0 mx-1">Add</a>
+            <a
+              href="/list/kelas/delete"
+              class="btn btn-outline-secondary px-2 py-0 mx-1">Delete</a>
           </div>
         </div>
       </div>
@@ -44,8 +47,6 @@
       </div>
       @endif
     </div>
-    <a href="/list/kelas/add">tambah data kelas</a>
-    <a href="/list/kelas/delete">hapus data siswa</a>
     <div class="table-responsive small">
       <table class="table table-striped table-sm">
         <thead>
@@ -56,8 +57,7 @@
             <th scope="col">Kelas_ke</th>
             <th scope="col">Lokasi</th>
             <th scope="col">Angkatan</th>
-            <th scope="col">dibuat pada</th>
-            <th scope="col">setting</th>
+            <th scope="col">Opsi</th>
           </tr>
         </thead>
         <tbody>
@@ -70,7 +70,6 @@
             <td>{{$classroom->kelas_ke}}</td>
             <td>{{$classroom->lokasi}}</td>
             <td>{{$classroom->angkatan}}</td>
-            <td>{{$classroom->created_at}}</td>
             <td><a href="/list/kelas/{{$classroom->id}}/edit">Edit</a></td>
           </tr>
           @endforeach

@@ -13,7 +13,7 @@ class RfidController
 {
     public function tmp_rfid(Request $request)
     {
-        $tmp_rfid = tmp_rfid::query()->delete();;
+        tmp_rfid::query()->delete();
 
         $validateRFID = $request->toArray();
 
@@ -79,19 +79,26 @@ class RfidController
             if ($jam->mode == "otomatis") {
                 if ($saat_ini >= $jam_masuk_Formatted && $saat_ini < $jam_istirahat_1_Formatted) {
                     create_absent($siswa_id, "masuk");
+                    tmp_rfid::query()->delete();
                 } elseif ($saat_ini >= $jam_istirahat_1_Formatted && $saat_ini < $jam_kembali_1_Formatted) {
                     create_absent($siswa_id, "istirahat_1");
+                    tmp_rfid::query()->delete();
                 } elseif ($saat_ini >= $jam_kembali_1_Formatted && $saat_ini < $jam_istirahat_2_Formatted) {
                     create_absent($siswa_id, "kembali_1");
+                    tmp_rfid::query()->delete();
                 } elseif ($saat_ini >= $jam_istirahat_2_Formatted && $saat_ini < $jam_kembali_2_Formatted) {
                     create_absent($siswa_id, "istirahat_2");
+                    tmp_rfid::query()->delete();
                 } elseif ($saat_ini >= $jam_kembali_2_Formatted && $saat_ini < $jam_pulang_Formatted) {
                     create_absent($siswa_id, "kembali_2");
+                    tmp_rfid::query()->delete();
                 } else {
                     create_absent($siswa_id, "pulang");
+                    tmp_rfid::query()->delete();
                 }
             } else {
                 create_absent($siswa_id, $jam->mode);
+                tmp_rfid::query()->delete();
             }
 
             return response()->json([
