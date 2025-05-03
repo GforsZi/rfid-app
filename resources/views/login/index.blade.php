@@ -6,7 +6,7 @@
       @csrf
       <img
         class="mb-4 object-fit-cover"
-        src="{{asset('resource/img/unicashlogo.png')}}"
+        src="{{asset('resource/img/logo.png')}}"
         alt=""
         width="72"
         height="60" />

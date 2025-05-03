@@ -70,7 +70,10 @@ class ViewController
     public function show_add_siswa_page(): View
     {
         $tmp_rfid = tmp_rfid::get()->first();
-        $rfid = $tmp_rfid->toArray();
+        $rfid = ["tmp_rfid" => ""];
+        if (!$tmp_rfid == null) {
+            $rfid = $tmp_rfid->toArray();
+        }
         return view("list/siswa/form.add", [
             "tittle" => "Add siswa page",
             "rfid" => $rfid["tmp_rfid"],

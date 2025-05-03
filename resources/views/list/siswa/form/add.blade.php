@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-7 col-lg-8">
               <h4 class="mb-3">Add data siswa</h4>
-              <a href="/list/siswa/scan">scan card</a>
+              <!-- <a href="/list/siswa/scan">scan card</a> -->
               <form action="/siswa/add" method="post" class="needs-validation" novalidate>
                 @csrf
                 <div class="row g-3">
@@ -41,7 +41,7 @@
                   </div>
 
                   <div class="col-sm-6">
-                    <label for="rfid" class="form-label">Nominal</label>
+                    <label for="rfid" class="form-label">RFID code</label>
                     <input
                       class="form-control @error('rfid') is-invalid @enderror"
                       type="text"

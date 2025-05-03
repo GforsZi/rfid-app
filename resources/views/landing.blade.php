@@ -2,7 +2,7 @@
   <x-slot:tittle></x-slot:tittle>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container px-4 px-lg-5">
-      <a class="navbar-brand link-light" href="#page-top">RFID-app</a>
+      <img class="object-fit-cover rounded-circle" width="70" src="{{asset('resource/img/logo.png')}}" alt="">
       <button class="navbar-toggler navbar-toggler-right text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
